@@ -1,0 +1,2 @@
+from skimage.io import imread, imsave
+imsave('out_img.png',(255 - imread('img.png')))
