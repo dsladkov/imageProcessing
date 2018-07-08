@@ -1,0 +1,58 @@
+def returnBoundaries():
+    #%matplotlib inline
+    from skimage.io import imread, imshow, imsave
+    img = imread('img.png')
+    color = img[0,0]
+    #imshow(img)
+    #print(color)
+    #print(img.shape)
+
+    y = img.shape[0] 
+    x = img.shape[1]
+    xToRight = img.shape[1]
+    count = 0
+    for item in range(0,xToRight):
+    #print(img[y//2,item])
+        if all(color!=img[y//2,item]):
+            break
+        count +=1
+        lst = []
+
+    lst.append(count)
+
+    #print(count)
+
+    yToDown = img.shape[0]
+
+    count = 0
+    for item in range(0, yToDown):
+        #print(img[item,x//2])    
+        if all(color != img[item,x//2]):
+            break
+        count +=1
+    lst.append(count)
+    #print(count)
+
+    item = img.shape[1] - 1
+    while item >= 0:
+        if all(color != img[y//2, item]):
+            break
+        item -=1
+    count = item
+    lst.append(img.shape[1] - (count + 1))
+    #print(img.shape[1] - (count + 1))
+
+    item = img.shape[0] -1
+    while item >= 0:
+        if all(color != img[item, x//2]):
+            break
+        item -=1
+    count = item
+    lst.append(img.shape[0] - (count + 1))
+    #print(img.shape[0] - (count + 1))
+    #print(lst)
+    #print("%i %i %i %i"%tuple(lst))
+    return lst
+
+myLst = returnBoundaries()
+print("%i %i %i %i"%tuple(myLst))
