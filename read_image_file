@@ -1,0 +1,2 @@
+from skimage.io import imread
+print(imread("img.png").shape[1])
