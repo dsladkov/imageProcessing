@@ -1,0 +1,6 @@
+from skimage.io import imread, imshow, imsave
+img = imread('img.png')
+x = int(img.shape[0]//2)
+y = int(img.shape[1]//2)
+img[x-3:x+4, y-7:y + 8] = [255, 192, 203]
+imsave('out_img.png', img)
